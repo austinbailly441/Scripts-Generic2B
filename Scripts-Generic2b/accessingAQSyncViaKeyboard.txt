@@ -1,0 +1,13 @@
+1. Connect keyboard to top USB slot.
+2. Blindly login with keyboard by typing "pi" then enter, then "boulder123" then enter.
+3. Kill the service by blindly typing "sudo service UIS* stop" enter
+4. Edit wpa supplicant file 
+	- "sudo nano /etc/wpa_supplicant/wpa_supplicant.conf" opens the file
+	- Edit the ssid in the first network and the psk (password)
+	- Delete the other two groups of network
+5. Cntrl + x  and then 'y' to save and exit the file
+6. type "cd" to go to home directory
+7. Type cd Scripts/Network/
+8. sudo ./RestartNetwork.sh 
+9. wait a minute, then verify network by typing "hostname -I" 
+	- This should provide an ip address.

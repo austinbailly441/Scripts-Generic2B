@@ -1,0 +1,47 @@
+Plan of attack for updating AQLite
+1. Teamview into EPA's laptop.
+2. Install DFU and CLI on laptop from (link sent by Austin).
+3. Install teraterm on laptop.
+4. Flash PAM in AQLite with newest firmware (OS version 2.1.0)
+	a. Austin will have this on his computer
+5. This "should" start uploading and we can test adjusting values through the particle dashboard.
+6. If this doesn't work, troubleshoot!
+
+*** Troubleshooting
+1. Could be the i2c for the RH/Temp sensor - disable the HIH8120 sensor it with 'T'.
+2. 
+
+
+
+Plan of attack for AQSync:
+1. Have the EPA person plug usb drive into the computer that we are teamviewed into.
+2. Copy the following files to hus drive:
+   a) Generic2BTouch_pi3
+   b) Generic2BTouch_pi4
+   c) Scripts.tar
+3. Have epa person plug usb drive into the AQSync (top slot)
+4. Update Scripts
+5. Update Generic2BTouch
+
+Update scripts:
+1. Walk epa person through accessingAQSyncViaKeyboard.txt
+   a) Make sure they start on the MainWindow (starting page)
+2. Once the epa person has connected, update the Scripts
+   a) Copy the update archive from the usb 'mv /media/usb/Scripts.tar /home/pi/'
+   b) Move the current version to act as a backup 'mv /home/pi/Scripts /home/pi/Scripts_old'
+   c) Extra the new Scripts from the archive 'tar -xvf Scripts.tar'
+   d) If successful, clean up files 'rm -f /homepi/Scripts.tar && rm -rf /home/pi/Scripts_old'
+      If unsuccessful, place backup 'mv /home/pi/Scripts_old /home/pi/Scripts'
+   e) Save changes 'sync'
+3. Restart device 'sudo reboot'
+
+Update Generic2BTouch
+1. After inserting usb (top slot), have epa person power cycle device
+2. Wait for all restarts to stop (wait 1-2 mins)
+3. Have epa person attempt to change wi-fi
+   a) Depending upon the strength of the wi-fi and how many devices are connected, this step can take upto 5 mins to work after the blocking label closes
+
+If anything goes wrong text me
+
+
+
